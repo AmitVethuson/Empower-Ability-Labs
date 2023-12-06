@@ -1,0 +1,43 @@
+.homeContent{
+    padding-top: 60px;
+}
+
+.servicesContent{
+    padding-top: 60px;
+}
+
+.scheduleContent{
+    padding-top: 60px;
+}
+
+.errorpageContent{
+    padding-top: 60px;
+}
+
+
+
+
+/* nav bar menu */
+.navbar-collapse {
+    display: none;
+}
+
+.navbar-collapse.collapsed {
+    display: block;
+}
+
+
+@media (min-width: 992px) {
+    .navbar-toggler {
+        display: none;
+    }
+}
+
+
+#navbarLogo{
+    width: 15rem;
+}
+
+.navbar-dark .navbar-nav .nav-item .nav-link{
+  color:#a1a4a8;
+}
