@@ -54,48 +54,58 @@
     text-align: center;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+/* Center-align title and image */
+.page-header { 
+    margin-top: 60px; 
+    display: flex;
+    
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+    margin-bottom: 20px;
+    
+}
 
-    /* Center-align title and image */
-    .page-header {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        
-        margin-bottom: 20px;
-        /* Adjust as needed */
-    }
+/* Form container */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    /* Form container */
-    .form-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+/* Individual form rows (flex items) */
+.form-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    /* Adjust as needed */
+}
 
-    /* Individual form rows (flex items) */
-    .form-row {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 20px;
-        /* Adjust as needed */
-    }
+/* Input fields */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+textarea {
+    width: 100%;
+    max-width: 400px;
+    /* Adjust the maximum width as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
 
-    /* Input fields */
-    input[type="text"],
-    input[type="tel"],
-    input[type="email"],
-    textarea {
-        width: 100%;
-        max-width: 400px;
-        /* Adjust the maximum width as needed */
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-    }
-  
 
 /* Switch button */
 .switch {

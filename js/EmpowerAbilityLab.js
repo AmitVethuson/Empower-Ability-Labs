@@ -54,7 +54,12 @@ const RouteHandler = async () => {
     .querySelector(`meta[name="description"]`)
     .setAttribute("content", selectRoute.description);
   // re initialize the event listeners after new page is loaded
-  initPageFunctions(pathname);
+  // Inside RouteHandler, after setting innerHTML
+  document.getElementById("root").innerHTML = getPage;
+  // Use setTimeout to wait for the DOM to be updated
+  setTimeout(() => {
+    initPageFunctions(pathname);
+  }, 0);
 };
 
 //initialize the page functions:
@@ -91,6 +96,56 @@ function navBarToggler() {
 //------------------------------------------------------------------
 
 // ------------------------------- Schedule a Call ---------------------------------
+function setupSwitchInput() {
+    const switchContainer = document.querySelector(".switch");
+    const checkbox = document.getElementById("emailUpdates");
+    const statusMessage = document.getElementById("emailUpdatesStatus");
+  
+    function updateStatus() {
+      const state = checkbox.checked ? "on" : "off";
+      statusMessage.textContent = `Receive emails about updates and services ${state}`;
+      switchContainer.setAttribute("aria-checked", checkbox.checked.toString());
+    }
+  
+    if (switchContainer) {
+      switchContainer.addEventListener("click", function () {
+        checkbox.checked = !checkbox.checked;
+        updateStatus();
+      });
+  
+      switchContainer.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault(); // Prevent scrolling when using Space
+          checkbox.checked = !checkbox.checked;
+          updateStatus();
+        }
+      });
+  
+      // Initialize the status message when the page loads
+      updateStatus();
+    }
+  }
+  
+  
+  function toggleSwitch(checkbox) {
+    const switchContainer = checkbox.closest('.switch');
+    const isChecked = checkbox.checked;
+    
+    // Update the aria-checked attribute
+    switchContainer.setAttribute("aria-checked", isChecked.toString());
+    
+    // Update the visual state of the switch
+    switchContainer.classList.toggle("switch-on", isChecked);
+  }
+  
+
+function switchKeyDown(event) {
+  if (event.key === " " || event.key === "Enter") {
+    event.preventDefault();
+    toggleSwitch(this);
+  }
+}
+
 function setupPhoneNumberInput() {
   const phoneNumberInput = document.getElementById("phoneNumber");
   if (phoneNumberInput) {
@@ -114,8 +169,16 @@ function setupPhoneNumberInput() {
     });
   }
 }
+function updateCheckboxLabel(checkbox) {
+  var checkboxDescription = checkbox.nextSibling.textContent.trim();
+  checkbox.setAttribute(
+    "aria-label",
+    checkboxDescription + (checkbox.checked ? " selected" : " unselected")
+  );
+}
 
 function setupScheduleACallPage() {
+  setupSwitchInput();
   const inviteSpeakerCheckbox = document.getElementById("inviteSpeaker");
   const eventDetailsContainer = document.getElementById(
     "eventDetailsContainer"
@@ -134,6 +197,7 @@ function setupScheduleACallPage() {
   }
   // Set up phone number input
   setupPhoneNumberInput();
+
   const scheduleCallForm = document.getElementById("scheduleCallForm");
   if (scheduleCallForm) {
     scheduleCallForm.addEventListener("submit", handleFormSubmit);
@@ -180,7 +244,7 @@ function handleFormSubmit(event) {
 
   simulateFormSubmission(businessName, phoneNumber, email, eventDetails);
 }
-window.addEventListener("load", setupScheduleACallPage);
+
 
 function simulateFormSubmission(
   businessName,
@@ -217,7 +281,7 @@ function simulateFormSubmission(
 document.getElementById("closeModal").addEventListener("click", function () {
   document.getElementById("successModal").style.display = "none";
 });
-
+window.addEventListener("load", setupScheduleACallPage);
 // ------------------------------- schedule a call ends---------------------------------
 
 function knowledgeRunner() {}
