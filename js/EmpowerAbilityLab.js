@@ -34,8 +34,13 @@ const Route = (event) =>{
     window.history.pushState({},"",event.target.href);
     RouteHandler();
     
-    //close hamberger menu
-    navBarToggler()
+    //checks if the burger menu is open if so close
+    const navbarCollapseState = getNavbarToggleState();
+    if(navbarCollapseState===true){
+        navBarToggler()
+    }
+    
+    
 }
 
 //handels the routing
@@ -52,7 +57,7 @@ const RouteHandler = async() =>{
     document.getElementById("root").innerHTML = getPage;
     document.title = selectRoute.title;
     document.querySelector(`meta[name="description"]`).setAttribute("content",selectRoute.description);
-    
+    // document.getElementById("root").focus()
 }
 
 //check for change
@@ -70,7 +75,6 @@ function navBarToggler(){
     const navbarCollapse = document.getElementById('navbarsExampleDefault');
     const navTogglerbutton = document.getElementById('navigationToggle');
     var isExpanded = navTogglerbutton.getAttribute('aria-expanded');
-
     //toggle aria-expanded
     if(isExpanded ==="true"){
         isExpanded = "false"
@@ -79,6 +83,13 @@ function navBarToggler(){
     }
     navbarCollapse.classList.toggle('collapsed');
     navTogglerbutton.setAttribute('aria-expanded' ,isExpanded);
+    
+}
+
+function getNavbarToggleState(){
+    const navbarCollapse = document.getElementById("navbarsExampleDefault");
+    return navbarCollapse.classList.contains('collapsed')
+    
 }
 //------------------------------------------------------------------
 
