@@ -1,3 +1,88 @@
-<div class="scheduleContent">
-    <h1>Schedule A Call</h1>
- </div>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule a Call - Empower Ability Labs</title>
+    <link rel="stylesheet" href="css/EmpowerAbilityLab.css">
+    
+</head>
+
+<body>
+    <main>
+        <div class="page-header">
+            <img src="images/scheduleacall.png" alt="Schedule a Call">
+            <h1 id="schedule-call-title">Schedule a Call</h1>
+        </div>
+
+        <div class="intro-container">
+            <p id="formInstructions">Please fill out the form below to schedule a call with our sales team. All fields
+                marked with an asterisk (*) are required.</p>
+        </div>
+        <form id="scheduleCallForm" aria-labelledby="formInstructions">
+            <div class="form-container">
+                <div class="form-row">
+                    <label for="businessName">Business name <span aria-hidden="true">*</span></label>
+                    <input type="text" id="businessName" name="businessName" required aria-required="true" tabindex="1"
+                        maxlength="50">
+                </div>
+
+                <div class="form-row">
+                    <label for="phoneNumber">Phone number <span aria-hidden="true">*</span></label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" required aria-required="true"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="613-123-1234" tabindex="2" maxlength="12">
+                </div>
+
+                <div class="form-row">
+                    <label for="email">Email <span aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" required aria-required="true" tabindex="3"
+                        maxlength="100">
+                </div>
+
+                <div class="form-row">
+                    <fieldset>
+                        <legend>What would you like to talk about?</legend>
+                        <label for="awarenessLab"><input type="checkbox" id="awarenessLab" name="talkAbout"
+                                value="awarenessLab"> Awareness lab days and workshops</label><br>
+                        <label for="inviteSpeaker"><input type="checkbox" id="inviteSpeaker" name="talkAbout"
+                                value="inviteSpeaker"> Invite a speaker with disabilities to your event</label><br>
+                        <label for="usabilityTesting"><input type="checkbox" id="usabilityTesting" name="talkAbout"
+                                value="usabilityTesting"> Usability testing</label>
+                    </fieldset>
+                </div>
+
+                <div class="form-row" id="eventDetailsContainer">
+                    <label for="eventDetails">Tell us about your event</label>
+                    <textarea id="eventDetails" name="eventDetails"
+                        placeholder="Please provide details about the event including date, time, and nature of the event"
+                        aria-describedby="eventDetailsHelp" tabindex="7" maxlength="500"></textarea>
+                </div>
+
+                <div class="form-row">
+                    <label for="emailUpdates">Receive emails about updates and services</label>
+                    <div class="switch">
+                        <input type="checkbox" id="emailUpdates" name="emailUpdates" tabindex="8">
+                        <label for="emailUpdates" class="switch-label"></label>
+                    </div>
+                </div>
+
+                <div class="form-row">
+
+                    <button type="submit" id="submitBtn">Schedule a Call</button>
+                </div>
+                <div id="successModal" class="modal">
+                    <div class="modal-content">
+                        <span id="successMessage"></span>
+                        <button id="closeModal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </main>
+
+    <script src="js/EmpowerAbilityLab.js"></script>
+</body>
+
+</html>

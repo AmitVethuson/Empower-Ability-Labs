@@ -20,6 +20,7 @@
 /* nav bar menu */
 .navbar-collapse {
     display: none;
+
 }
 
 .navbar-collapse.collapsed {
@@ -40,4 +41,199 @@
 
 .navbar-dark .navbar-nav .nav-item .nav-link{
   color:#a1a4a8;
+}
+
+
+/* Schedule a Call page header */
+.schedule_a_call_page-header {
+    margin-top: auto;
+    margin-bottom: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+    /* Center-align title and image */
+    .page-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        
+        margin-bottom: 20px;
+        /* Adjust as needed */
+    }
+
+    /* Form container */
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Individual form rows (flex items) */
+    .form-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+        /* Adjust as needed */
+    }
+
+    /* Input fields */
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        max-width: 400px;
+        /* Adjust the maximum width as needed */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+  
+
+/* Switch button */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.switch input:checked + .switch-label {
+    background-color: #34c759;
+}
+
+.switch-label:before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.switch input:checked + .switch-label:before {
+    transform: translateX(20px) translateY(-50%);
+    background-color: #fff;
+}
+
+/* Form container */
+.form-container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
+}
+
+/* Individual form rows */
+.form-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align to the left */
+    margin-bottom:auto;
+}
+
+/* Adjust the label and input box alignment and width */
+.form-row label {
+    display: block;
+    margin-right: auto;
+    margin-bottom: 5px; /* Spacing between label and input */
+}
+
+/* Uniform Input Length */
+.form-row input[type="text"],
+.form-row input[type="tel"],
+.form-row input[type="email"],
+.form-row textarea {
+    width: 400px;; /* Full width of the parent container */
+    padding: 10px;
+    margin-bottom: 10px; /* Spacing between input fields */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+}
+
+/* Additional styles for focus state */
+.form-row input[type="text"]:focus,
+.form-row input[type="tel"]:focus,
+.form-row input[type="email"]:focus,
+.form-row textarea:focus {
+    outline: none;
+    border-color: #666;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Intro container */
+.intro-container {
+    max-width: 500px;
+    text-align: center;
+    margin: 20px auto 30px;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+}
+
+/* The Close Button */
+#closeModal {
+    margin-top: 20px;
 }
