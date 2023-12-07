@@ -1,5 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empower Ability Labs - Homepage</title>
+    <link rel="stylesheet" href="../css/EmpowerAbilityLab.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Custom styles for Empower Ability Labs -->
+    <link rel="stylesheet" href="./css/EmpowerAbilityLab.css">
+
+
+</head>
+
+<body>
+<!-- Main Navigation for Empower Ability Labs-->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/">
+      <img id="navbarLogo" src="../images/empowerabilitylabslogo.png" alt="empower ability labs log" />
+    </a>
+    <button class="navbar-toggler" type="button" aria-controls="navbarsExampleDefault" aria-expanded="false"
+      aria-label="Toggle navigation" id="navigationToggle" onclick="navBarToggler()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href='/' onclick="Route()">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href='/services' onclick="Route()">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href='/schedule-a-call' onclick="Route()">Schedule a call</a></li>
+      </ul>
+    </div>
+  </nav>
 
 
 <div class="homeContent">
-    <h1>Homepage</h1>
+    <h1>Welcome to Empower Ability Labs!</h1>
+    <p>Empower Ability Labs is a hub for learning and empathy-building.  We are on a mission to foster understanding and promote inclusive digital experiences for all. We offer a range of services designed to promote accessibility awareness, drive inclusivity, and enhance the user experience. And help you find answers on How do people with disabilities use technology and navigate the digital world? What tools do they employ? </p>
+
+    <button onclick="toggleVisibility()">Meet the Empower Community!</button>
+
+    <div id="toggleElement">
+        <div class="box-container">
+            <div class="box title-box">Our Approach</div>
+            <div class="box title-box">Services</div>
+            <div class="box title-box">Testimonials</div>
+        
+            <div class="box content-box"><p>Empower Ability Labs utilizes a hands-on approach to raise awareness and promote empathy. Our immersive workshops and lab days provide participants with a unique opportunity to step into the shoes of individuals with disabilities and navigate the world from their perspective.</p>
+            <p class="content-link"><a href="https://www.google.com/search/howsearchworks/our-approach/">Learn more</a></p>
+            </div>
+            
+            <div class="box content-box"><p>Promote accessibility awareness and enhance the user experience. 
+                <ul>
+                    <li>Empathy lab days and workshops</li>
+                    <li>Go beyond WCAG compliance!</li>
+                    <li>Inspirational speakers.</li>
+                </ul></p>
+            <p class="content-link"><a href="https://www.elevenways.be/en/services">Learn more</a></p>
+            </div>
+            <div class="box content-box"><p>Invite a speaker with disabilities to share their unique journey. This captivating addition to your upcoming event will offer insights that resonate,  inspire, educate, and enrich your team’s understanding of inclusion.</p>
+            <p class="content-link"><a href="https://dictionary.cambridge.org/us/dictionary/english/testimonial">Learn more</a></p>
+            </div>
+        </div>
+    </div>
 </div>
+<script src="../js/EmpowerAbilityLab.js"></script>
+</body>
+
+<main>
+    <div id="root">
+
+    </div>
+
+
+  </main>
+
+  <div class="footer">
+    <p>Copyright Accessible Knowledge Base 2023</p>
+</div>
+</html>

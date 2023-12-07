@@ -41,3 +41,52 @@
 .navbar-dark .navbar-nav .nav-item .nav-link{
   color:#a1a4a8;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto,auto;
+    gap: 10px;
+    padding: 20px;
+}
+.box {
+    background-color: #f0f0f0;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.title-box {
+    font-weight: bold;
+    height: fit-content;
+}
+.content-box {
+    font-style: italic;
+    text-align: left;
+}
+.content-text {
+    flex-grow: 1;
+}
+.content-link {
+    position: absolute;
+    bottom: 5px;
+}
+.content-link a {
+    text-decoration: none;
+    color: blue;
+}
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

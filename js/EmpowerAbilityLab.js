@@ -83,11 +83,19 @@ function navBarToggler(){
 //------------------------------------------------------------------
 
 
-
-
-
-
-
+document.addEventListener("DOMContentLoaded", function() {
+    var element = document.getElementById('toggleElement');
+    element.style.display = 'none';
+  });
+  
+  function toggleVisibility() {
+    var element = document.getElementById('toggleElement');
+    if (element.style.display === 'none' || element.style.display === '') {
+      element.style.display = 'block';
+    } else {
+      element.style.display = 'none';
+    }
+  }
 
 
 
