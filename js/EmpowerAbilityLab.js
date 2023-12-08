@@ -25,15 +25,20 @@ const Routes = {
 };
 
 //route button function
-const Route = (event) => {
-  event = event || window.event;
-  event.preventDefault();
-  window.history.pushState({}, "", event.target.href);
-  RouteHandler();
-
-  //close hamberger menu
-  navBarToggler();
-};
+const Route = (event) =>{
+    event = event || window.event;
+    event.preventDefault();
+    window.history.pushState({},"",event.target.href);
+    RouteHandler();
+    
+    //checks if the burger menu is open if so close
+    const navbarCollapseState = getNavbarToggleState();
+    if(navbarCollapseState===true){
+        navBarToggler()
+    }
+    
+    
+}
 
 //handels the routing
 const RouteHandler = async () => {
@@ -68,6 +73,11 @@ function initPageFunctions(pathname) {
   if (pathname === "/schedule-a-call") {
     setupScheduleACallPage();
   }
+    //inject the page data to the 
+    document.getElementById("root").innerHTML = getPage;
+    document.title = selectRoute.title;
+    document.querySelector(`meta[name="description"]`).setAttribute("content",selectRoute.description);
+    // document.getElementById("root").focus()
 }
 
 //check for change
@@ -79,19 +89,25 @@ RouteHandler();
 //--------------------------------------------------------------------------------
 
 //----------------------Handle hamberger menu---------------------------
-function navBarToggler() {
-  const navbarCollapse = document.getElementById("navbarsExampleDefault");
-  const navTogglerbutton = document.getElementById("navigationToggle");
-  var isExpanded = navTogglerbutton.getAttribute("aria-expanded");
+function navBarToggler(){
+    const navbarCollapse = document.getElementById('navbarsExampleDefault');
+    const navTogglerbutton = document.getElementById('navigationToggle');
+    var isExpanded = navTogglerbutton.getAttribute('aria-expanded');
+    //toggle aria-expanded
+    if(isExpanded ==="true"){
+        isExpanded = "false"
+    }else{
+        isExpanded = "true"
+    }
+    navbarCollapse.classList.toggle('collapsed');
+    navTogglerbutton.setAttribute('aria-expanded' ,isExpanded);
+    
+}
 
-  //toggle aria-expanded
-  if (isExpanded === "true") {
-    isExpanded = "false";
-  } else {
-    isExpanded = "true";
-  }
-  navbarCollapse.classList.toggle("collapsed");
-  navTogglerbutton.setAttribute("aria-expanded", isExpanded);
+function getNavbarToggleState(){
+    const navbarCollapse = document.getElementById("navbarsExampleDefault");
+    return navbarCollapse.classList.contains('collapsed')
+    
 }
 //------------------------------------------------------------------
 
